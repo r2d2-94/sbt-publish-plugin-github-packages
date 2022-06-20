@@ -1,4 +1,4 @@
-package org.bajaj
+package io.r2d211
 
 import sbt.Keys._
 import sbt._
@@ -6,13 +6,13 @@ import sbt._
 
 /**
  * Plugin to publish plugin to maven style github packages.
- * Add org.bajaj.PblshPlgnGHPckgsPlugin#ghPckgPomConsistency in a plugin project settings
+ * Add io.r2d211.PblshPlgnGHPckgsPlugin#ghPckgPomConsistency in a plugin project settings
  * to publish the plugin project.
- * Add org.bajaj.PblshPlgnGHPckgsPlugin#addGHSbtPlugin(sbt.librarymanagement.ModuleID)
+ * Add io.r2d211.PblshPlgnGHPckgsPlugin#addGHSbtPlugin(sbt.librarymanagement.ModuleID)
  * in plugins.sbt of the referencing project to be able to resolve plugin published
- * via org.bajaj.PblshPlgnGHPckgsPlugin#ghPckgPomConsistency
+ * via io.r2d211.PblshPlgnGHPckgsPlugin#ghPckgPomConsistency
  */
-object PblshPlgnGHPckgsPlugin extends sbt.AutoPlugin {
+object  extends sbt.AutoPlugin {
 
   def ghPckgPomConsistency: Seq[Setting[_]] = Seq(
     moduleName := {
