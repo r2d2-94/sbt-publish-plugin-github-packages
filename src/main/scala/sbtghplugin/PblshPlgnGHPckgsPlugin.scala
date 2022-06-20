@@ -1,4 +1,4 @@
-package io.r2d211
+package sbtghplugin
 
 import sbt.Keys._
 import sbt._
@@ -6,13 +6,13 @@ import sbt._
 
 /**
  * Plugin to publish plugin to maven style github packages.
- * Add io.r2d211.PblshPlgnGHPckgsPlugin#ghPckgPomConsistency in a plugin project settings
+ * Add sbtghplugin.PblshPlgnGHPckgsPlugin#ghPckgPomConsistency in a plugin project settings
  * to publish the plugin project.
- * Add io.r2d211.PblshPlgnGHPckgsPlugin#addGHSbtPlugin(sbt.librarymanagement.ModuleID)
+ * Add sbtghplugin.PblshPlgnGHPckgsPlugin#addGHSbtPlugin(sbt.librarymanagement.ModuleID)
  * in plugins.sbt of the referencing project to be able to resolve plugin published
- * via io.r2d211.PblshPlgnGHPckgsPlugin#ghPckgPomConsistency
+ * via sbtghplugin.PblshPlgnGHPckgsPlugin#ghPckgPomConsistency
  */
-object  extends sbt.AutoPlugin {
+object PblshPlgnGHPckgsPlugin extends sbt.AutoPlugin {
 
   def ghPckgPomConsistency: Seq[Setting[_]] = Seq(
     moduleName := {

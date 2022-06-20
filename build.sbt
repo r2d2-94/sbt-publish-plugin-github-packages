@@ -1,3 +1,5 @@
+import xerial.sbt.Sonatype.GitHubHosting
+
 /*
  * Copyright 2022 Mohit Bajaj
  *
@@ -15,24 +17,28 @@
  */
 
 name := "sbt-publish-plugin-github-packages"
-version := "0.0.0"
-ThisBuild / organization := "org.bajaj"
+version := "0.0.0-alpha4"
+ThisBuild / organization := "io.github.r2d211"
 ThisBuild / sbtPlugin := true
 ThisBuild / sbtVersion := "1.6.2"
 enablePlugins(SbtPlugin)
 
 scmInfo := Some(
   ScmInfo(
-    url("https://github.com/r2d2-94/sbt-publish-plugin-github-packages"),
-    "scm:git@github.com:r2d2-94/sbt-github-packages.git"))
+    url("https://github.com/r2d211/sbt-publish-plugin-github-packages"),
+    "scm:git@github.com:r2d211/sbt-github-packages.git"))
 
 developers := List(
-  Developer(id="r2d2-94", name="Mohit", email="bajajmohit0694@gmail.com", url=url("https://github.com/r2d2-94")))
+  Developer(id="r2d211", name="Mohit", email="bajajmohit11@gmail.com", url=url("https://github.com/r2d211")))
 
+// open source licenses that apply to the project
+licenses := Seq("APL2" -> url("https://www.apache.org/licenses/LICENSE-2.0.txt"))
+sonatypeCredentialHost := "s01.oss.sonatype.org"
+publishTo := sonatypePublishToBundle.value
 publishMavenStyle := true
-githubOwner := "r2d2-94"
-githubRepository := "sbt-publish-plugin-github-packages"
-githubTokenSource := TokenSource.GitConfig("github.token") || TokenSource.Environment("GITHUB_TOKEN")
+
+sonatypeProfileName := "io.github.r2d211"
+sonatypeProjectHosting := Some(GitHubHosting("r2d211", "sbt-publish-plugin-github-packages", "bajajmohit11@gmail.com"))
 
 scriptedLaunchOpts ++= Seq("-Dplugin.version=" + version.value)
 scriptedBufferLog := true
